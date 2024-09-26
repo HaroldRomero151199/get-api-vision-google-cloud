@@ -37,17 +37,14 @@ def detect_objects(image_content):
     logos = response.logo_annotations
     text_annotations = response.text_annotations
 
-    # Etiquetas
     print("Etiquetas detectadas:")
     for label in labels:
         print(f'{label.description} (Confianza: {label.score})')
 
-    # Texto
     print("\nTexto detectado:")
     if text_annotations:
         print(text_annotations[0].description)
 
-    # Logotipos
     print("\nLogotipos detectados:")
     for logo in logos:
         print(f'{logo.description} (Confianza: {logo.score})')
@@ -57,6 +54,3 @@ def detect_objects(image_content):
             "{}\nFor more info on error messages, check: "
             "https://cloud.google.com/apis/design/errors".format(response.error.message)
         )
-
-
-# detect_objects(image_path)
